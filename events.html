@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="app">
+	<!-- here, v-on is the vue.js directive name, click is the event  expression is the function passed in-->
+	<button v-on:click="clickedButton('Whats up?', $event)" >Click me first</button>
+
+	<!-- propagation on events with directive names -->
+	<button v-on:click.once="showDialogue">Tap Event</button>
+
+	<a href="https://www.google.com" target="_blank" v-on:click.prevent="showDialogue">Qucik Search!</a>
+
+	<input type="text" name="" placeholder="up to thirteen" v-on:keyup.13="strMaxLength">
+
+	<input type="text" name="" v-on:keyup.enter.space="pressedEnterOrSpaceBar">
+
+
+	<input type="text" name="" v-on:keyup.5="strMaxLength">
+	<br> <br> <hr>
+		<fieldset>
+			<input type="text" v-on:keyup.shift.enter="myListerner" name="">
+			<button v-on:click.meta="myButtonListerner">Click here</button>				
+		</fieldset>
+
+</div>
+
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+
+		el: '#app',
+			methods: {
+				clickedButton : function(message, event) {
+					console.log(event);
+					alert(message);
+				},
+				showDialogue : function(){
+					alert('Propagation tapped');
+				},
+				pressedEnter : function() {
+					alert('You just oressed the enter key');
+				},
+				strMaxLength : function() {
+					alert ('You cant input more than five digits');
+				},
+				pressedEnterOrSpaceBar : function () {
+					alert('You just pressed eitherthe space bar or enter key on the keyboard');
+				},
+				myListerner : function() {
+					alert('u just clicked shift and enter');
+				},
+				myButtonListerner : function () {
+					alert('u hold on shift key u den clicked the button');
+
+				}
+
+
+
+			}
+	});
+</script>
+</body>
+</html>

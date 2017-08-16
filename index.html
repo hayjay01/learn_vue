@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LEARN VUE.JS HELLO WORLD!</title>
+</head>
+<body>
+
+<div id="app">
+	{{ message + " "+ name.split(' ')[0] }} <br> <br>
+	<b> Your full name is: {{ getFullName() }} </b> <br> <br>
+	<b style="color:#0099cc;"> Your full name in es6 standard is: {{ getFullNameInStandardFormat(firstname, lastname).name }} </b> <br>
+
+	<a v-bind:href="blogURL">Visit Naira Product A.P.I</a>
+	
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		//this is the element we r targetting to dsplay the result here 
+		el: '#app',
+		data: {
+				message: 'Hello World!',
+				name: 'Ajayi Nurudeen',
+				firstname: 'Abdul-hakeem',
+				lastname: 'Ajayi',
+				blogURL: 'http://www.nairaproducts.ng'
+		},
+		//whenever we want to use a function, we use the methods property to wrapp all our methods
+		methods: {
+			getFullName: function(){
+				return this.firstname + ' ' + this.lastname; 
+			},
+			getFullNameInStandardFormat: function(first, last){
+				return {
+					name: first + ' ' + last 
+				};
+			}
+
+
+		}
+	});
+</script>
+</body>
+</html>

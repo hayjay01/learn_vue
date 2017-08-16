@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	
+	<div id="app">
+		<!-- Excercise 1: Make the below text input update a data propertyon every keyup event. also, output the data property. Hint event.target.value usually givee access to input vlue -->
+
+		<input type="" name="" v-on:keyup.ctrl.enter="naKeyUp">
+		Output:  {{ name }}
+
+		<br> <br>
+
+
+		<!-- EXCERCISE 2: make the below text input update the data property from exacercise one but only when pressing the control + keys. Hint: The key modifier for the control key is named ctrl -->
+
+		<input type="" name="" >
+		Output:  {{ name }}
+
+		<br> <br>
+
+		<!-- Excercise 3: Make the below text input update a data propertyon every keyup event. also, output the data property. Hint event.target.value usually givee access to input vlue -->
+		<form action="" method="GET" v-on:submit.prevent>
+			<input type="submit" name="" value="Submit">
+		</form>
+
+
+
+
+
+	</div>
+<script src="vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			name : ''
+		},
+		methods: {
+			naKeyUp: function(event) { //event is a call back param for we to be able to use the properties of this function eg: event.arget, and so on
+				console.log(event);
+				this.name = event.target.value; //this.name is the name key in d data attrbute upe
+			}
+		}
+
+	});
+</script>
+</body>
+</html>
